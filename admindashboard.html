@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PROFITBRIDGE Admin</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f1f4f8;
+    color: #172033;
+}
+
+header {
+    background: #101d35;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header span {
+    color: #16c784;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    background: #101d35;
+    width: 220px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 5px;
+}
+
+.sidebar a:hover {
+    background: #16a875;
+}
+
+.main {
+    flex: 1;
+    padding: 25px;
+    min-width: 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.card, .section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.card p {
+    color: #777;
+    margin-bottom: 12px;
+}
+
+.card h2 {
+    font-size: 23px;
+}
+
+.green {
+    color: #16a875;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 14px 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+th {
+    color: #777;
+}
+
+button {
+    background: #16a875;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.status {
+    color: #16a875;
+}
+
+@media(max-width: 850px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    .sidebar {
+        width: 75px;
+        padding: 5px;
+    }
+
+    .sidebar a {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .main {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .card h2 {
+        font-size: 17px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>PROFIT<span>BRIDGE</span></h2>
+    <p>Administrator ⚙️</p>
+</header>
+
+<div class="container">
+
+<nav class="sidebar">
+
+    <a href="#overview">🏠 Overview</a>
+
+    <a href="#users">👥 Users</a>
+
+    <a href="#investments">💼 Investments</a>
+
+    <a href="#transactions">📊 Transactions</a>
+
+    <a href="#settings">⚙️ Settings</a>
+
+</nav>
+
+<main class="main" id="overview">
+
+    <h2>Admin Dashboard</h2>
+
+    <p>Welcome to your administration panel.</p>
+
+    <div class="cards">
+
+        <div class="card">
+            <p>Total Users</p>
+            <h2>120</h2>
+        </div>
+
+        <div class="card">
+            <p>Total Investments</p>
+            <h2>₦850,000</h2>
+        </div>
+
+        <div class="card">
+            <p>Total Demo Profits</p>
+            <h2 class="green">₦75,000</h2>
+        </div>
+
+        <div class="card">
+            <p>Active Accounts</p>
+            <h2>98</h2>
+        </div>
+
+    </div>
+
+    <section class="section" id="users">
+
+        <h3>Registered Users</h3>
+
+        <br>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>John</td>
+                    <td>john@example.com</td>
+                    <td class="status">Active</td>
+                </tr>
+
+                <tr>
+                    <td>David</td>
+                    <td>david@example.com</td>
+                    <td class="status">Active</td>
+                </tr>
+
+                <tr>
+                    <td>Michael</td>
+                    <td>michael@example.com</td>
+                    <td class="status">Active</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="section" id="investments">
+
+        <h3>Investment Monitoring</h3>
+
+        <br>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Amount</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>John</td>
+                    <td>₦10,000</td>
+                    <td>2 Days</td>
+                    <td class="status">Running</td>
+                </tr>
+
+                <tr>
+                    <td>David</td>
+                    <td>₦20,000</td>
+                    <td>2 Days</td>
+                    <td class="status">Completed</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="section" id="transactions">
+
+        <h3>Recent Transactions</h3>
+
+        <br>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Activity</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>John</td>
+                    <td>Demo Deposit</td>
+                    <td>₦10,000</td>
+                    <td class="status">Demo</td>
+                </tr>
+
+                <tr>
+                    <td>David</td>
+                    <td>Demo Withdrawal</td>
+                    <td>₦5,000</td>
+                    <td class="status">Demo</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <section class="section" id="settings">
+
+        <h3>Administrator Settings</h3>
+
+        <p>Platform: PROFITBRIDGE</p>
+
+        <p>Account: Demo Administrator</p>
+
+        <p>Status: Active</p>
+
+    </section>
+
+</main>
+
+</div>
+
+</body>
+</html>
