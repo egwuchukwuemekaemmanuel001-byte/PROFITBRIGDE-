@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFITBRIDGE - Login</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #081525;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-box {
+            background: #12243a;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00d69a;
+        }
+
+        p {
+            text-align: center;
+            color: #b7c5d5;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #344b65;
+            border-radius: 6px;
+            background: #081525;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            background: #00d69a;
+            color: #081525;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00b982;
+        }
+
+        #message {
+            color: #ff7777;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h1>PROFITBRIDGE</h1>
+        <p>Welcome back! Login to continue.</p>
+
+        <form id="loginForm">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email address"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit">LOGIN</button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (email === "admin@profitbridge.com" && password === "admin123") {
+
+                window.location.href = "admin.html";
+
+            } else if (email === "user@profitbridge.com" && password === "user123") {
+
+                window.location.href = "dashboard.html";
+
+            } else {
+
+                document.getElementById("message").textContent =
+                    "Incorrect email or password.";
+
+            }
+
+        });
+    </script>
+
+</body>
+</html>
