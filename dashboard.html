@@ -6,8 +6,9 @@
 
 <title>PROFITBRIDGE | Dashboard</title>
 
-<style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<style>
 * {
     margin: 0;
     padding: 0;
@@ -42,6 +43,7 @@ header {
     background: #243653;
     padding: 10px;
     border-radius: 8px;
+    font-size: 12px;
 }
 
 .container {
@@ -136,6 +138,11 @@ button {
     font-weight: bold;
 }
 
+button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
 .deposit {
     background: #16a875;
     color: white;
@@ -215,6 +222,15 @@ footer {
     color: #888;
 }
 
+#notice {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+    display: none;
+    background: #e0f8ed;
+    color: #087a49;
+}
+
 @media(max-width: 900px) {
     .cards {
         grid-template-columns: repeat(2, 1fr);
@@ -257,20 +273,24 @@ footer {
         font-size: 16px;
     }
 }
-
 </style>
 </head>
 
 <body>
 
 <header>
+
     <div class="logo">
         PROFIT<span>BRIDGE</span>
     </div>
 
     <div class="profile">
-        👤 Demo User
+        👤 <span id="userEmail">Loading...</span>
+        <button onclick="logout()" style="margin-left:8px;padding:7px;">
+            Logout
+        </button>
     </div>
+
 </header>
 
 <div class="container">
@@ -278,15 +298,10 @@ footer {
 <nav class="sidebar">
 
     <a href="#" class="active">🏠 Home</a>
-
     <a href="#investment">💼 Investment</a>
-
     <a href="#transactions">📊 Transactions</a>
-
     <a href="#wallet">💳 Wallet</a>
-
     <a href="#support">💬 Support</a>
-
     <a href="#account">⚙️ Account</a>
 
 </nav>
@@ -300,162 +315,4 @@ footer {
 
     <div class="demo">
         DEMO MODE: All figures and transactions are simulated.
-    </div>
-
-    <div class="cards">
-
-        <div class="card">
-            <p>Available Balance</p>
-            <h2 id="balance">₦50,000</h2>
-        </div>
-
-        <div class="card">
-            <p>Total Investment</p>
-            <h2 id="invested">₦0</h2>
-        </div>
-
-        <div class="card">
-            <p>Total Profit</p>
-            <h2 class="green" id="profit">₦0</h2>
-        </div>
-
-        <div class="card">
-            <p>Account Status</p>
-            <h2 class="green">Active</h2>
-        </div>
-
-    </div>
-
-    <div class="actions">
-
-        <button class="deposit" onclick="deposit()">
-            + Demo Deposit
-        </button>
-
-        <button class="withdraw" onclick="withdraw()">
-            Withdraw Demo Funds
-        </button>
-
-    </div>
-
-    <section class="section" id="investment">
-
-        <h3>Investment Plans</h3>
-
-        <div class="plans">
-
-            <div class="plan">
-                <h4>Starter Plan</h4>
-                <p>Demo amount: ₦5,000</p>
-                <p>Duration: 2 days</p>
-                <button onclick="invest(5000)">
-                    Select Plan
-                </button>
-            </div>
-
-            <div class="plan">
-                <h4>Growth Plan</h4>
-                <p>Demo amount: ₦10,000</p>
-                <p>Duration: 2 days</p>
-                <button onclick="invest(10000)">
-                    Select Plan
-                </button>
-            </div>
-
-            <div class="plan">
-                <h4>Premium Plan</h4>
-                <p>Demo amount: ₦20,000</p>
-                <p>Duration: 2 days</p>
-                <button onclick="invest(20000)">
-                    Select Plan
-                </button>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="section" id="wallet">
-
-        <h3>Wallet Information</h3>
-
-        <p>Demo wallet balance</p>
-
-        <h2 id="walletBalance">₦50,000</h2>
-
-    </section>
-
-    <section class="section" id="transactions">
-
-        <h3>Recent Transactions</h3>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Transaction</th>
-                    <th>Amount</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-
-            <tbody id="history">
-
-                <tr>
-                    <td>Account Created</td>
-                    <td>₦50,000</td>
-                    <td class="green">Demo</td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </section>
-
-    <section class="section" id="support">
-        <h3>Customer Support</h3>
-        <p>Contact our support team for assistance.</p>
-    </section>
-
-    <section class="section" id="account">
-        <h3>Account Settings</h3>
-        <p>Account: Demo User</p>
-        <p>Status: Active</p>
-    </section>
-
-</main>
-
-</div>
-
-<footer>
-    © 2026 PROFITBRIDGE. Demo Dashboard.
-</footer>
-
-<script>
-
-let balance = 50000;
-let invested = 0;
-let profit = 0;
-
-function money(amount) {
-    return "₦" + amount.toLocaleString("en-NG");
-}
-
-function updateDashboard() {
-
-    document.getElementById("balance").innerText =
-        money(balance);
-
-    document.getElementById("walletBalance").innerText =
-        money(balance);
-
-    document.getElementById("invested").innerText =
-        money(invested);
-
-    document.getElementById("profit").innerText =
-        money(profit);
-
-}
-
-function addHistory(name, amount)
+        No real money is deposited or invested
