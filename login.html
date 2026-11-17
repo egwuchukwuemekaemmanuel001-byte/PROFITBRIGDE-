@@ -1,133 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROFITBRIDGE - Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PROFITBRIDGE - Login</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #081525;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+<style>
+* { box-sizing: border-box; }
 
-        .login-box {
-            background: #12243a;
-            padding: 30px;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 12px;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #081525;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        h1 {
-            text-align: center;
-            color: #00d69a;
-        }
+.login-box {
+    background: #12243a;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+}
 
-        p {
-            text-align: center;
-            color: #b7c5d5;
-        }
+h1 {
+    text-align: center;
+    color: #00d69a;
+}
 
-        input {
-            width: 100%;
-            padding: 14px;
-            margin: 10px 0;
-            border: 1px solid #344b65;
-            border-radius: 6px;
-            background: #081525;
-            color: white;
-        }
+p {
+    text-align: center;
+    color: #b7c5d5;
+}
 
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 15px;
-            background: #00d69a;
-            color: #081525;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+input {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #344b65;
+    border-radius: 6px;
+    background: #081525;
+    color: white;
+}
 
-        button:hover {
-            background: #00b982;
-        }
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: #00d69a;
+    color: #081525;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-        #message {
-            color: #ff7777;
-            margin-top: 12px;
-        }
-    </style>
+button:disabled {
+    opacity: 0.6;
+}
+
+#message {
+    color: #ff7777;
+    margin-top: 12px;
+}
+</style>
 </head>
 
 <body>
 
-    <div class="login-box">
+<div class="login-box">
 
-        <h1>PROFITBRIDGE</h1>
-        <p>Welcome back! Login to continue.</p>
+<h1>PROFITBRIDGE</h1>
+<p>Welcome back! Login to continue.</p>
 
-        <form id="loginForm">
+<form id="loginForm">
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Email address"
-                required
-            >
+<input
+type="email"
+id="email"
+placeholder="Email address"
+required
+>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password"
-                required
-            >
+<input
+type="password"
+id="password"
+placeholder="Password"
+required
+>
 
-            <button type="submit">LOGIN</button>
+<button type="submit" id="loginButton">
+LOGIN
+</button>
 
-        </form>
+</form>
 
-        <p id="message"></p>
+<p id="message"></p>
 
-    </div>
+</div>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
+<script>
 
-            event.preventDefault();
+const SUPABASE_URL = "https://lypclqsgqxsmihsarltm.supabase.co";
 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+const SUPABASE_KEY = "sb_publishable_fPvhDn0iuyrKxlC9TKX9dw_tRGoUUEI";
 
-            if (email === "admin@profitbridge.com" && password === "admin123") {
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
 
-                window.location.href = "admin.html";
+const form = document.getElementById("loginForm");
+const message = document.getElementById("message");
+const button = document.getElementById("loginButton");
 
-            } else if (email === "user@profitbridge.com" && password === "user123") {
+form.addEventListener("submit", async (event) => {
 
-                window.location.href = "dashboard.html";
+    event.preventDefault();
 
-            } else {
+    message.textContent = "";
+    button.disabled = true;
+    button.textContent = "LOGGING IN...";
 
-                document.getElementById("message").textContent =
-                    "Incorrect email or password.";
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-            }
+    try {
 
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
+            email,
+            password
         });
-    </script>
+
+        if (error) throw error;
+
+        const { data: profile, error: profileError } =
+            await supabaseClient
+            .from("profiles")
+            .select("role")
+            .eq("id", data.user.id)
+            .single();
+
+        if (profileError) {
+            throw new Error("Profile not found. Please contact support.");
+        }
+
+        if (profile.role === "admin") {
+            window.location.replace("admin.html");
+        } else {
+            window.location.replace("dashboard.html");
+        }
+
+    } catch (error) {
+
+        message.textContent = error.message;
+
+        button.disabled = false;
+        button.textContent = "LOGIN";
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
