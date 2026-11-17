@@ -7,19 +7,16 @@
 <title>PROFITBRIDGE | Dashboard</title>
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
 body {
     background: #f1f4f9;
     color: #172033;
 }
-
 header {
     background: #101d35;
     color: white;
@@ -28,33 +25,23 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
     font-size: 21px;
     font-weight: bold;
 }
-
-.logo span {
-    color: #16c784;
-}
-
+.logo span { color: #16c784; }
 .profile {
     background: #243653;
     padding: 10px;
     border-radius: 8px;
 }
-
-.container {
-    display: flex;
-}
-
+.container { display: flex; }
 .sidebar {
     width: 230px;
     background: #101d35;
     min-height: 100vh;
     padding: 20px;
 }
-
 .sidebar a {
     display: block;
     color: #cbd5e1;
@@ -63,27 +50,17 @@ header {
     margin-bottom: 8px;
     border-radius: 7px;
 }
-
-.sidebar a:hover,
-.sidebar a.active {
+.sidebar a:hover, .sidebar a.active {
     background: #16a875;
     color: white;
 }
-
 .main {
     flex: 1;
     padding: 25px;
     min-width: 0;
 }
-
-.welcome {
-    margin-bottom: 25px;
-}
-
-.welcome h2 {
-    margin-bottom: 8px;
-}
-
+.welcome { margin-bottom: 25px; }
+.welcome h2 { margin-bottom: 8px; }
 .demo {
     background: #fff3cd;
     color: #795600;
@@ -92,42 +69,31 @@ header {
     margin-bottom: 20px;
     font-size: 13px;
 }
-
 .cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
     margin-bottom: 25px;
 }
-
 .card {
     background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.04);
 }
-
 .card p {
     color: #778197;
     font-size: 13px;
     margin-bottom: 12px;
 }
-
-.card h2 {
-    font-size: 23px;
-}
-
-.green {
-    color: #16a875;
-}
-
+.card h2 { font-size: 23px; }
+.green { color: #16a875; }
 .actions {
     display: flex;
     gap: 12px;
     margin-bottom: 25px;
     flex-wrap: wrap;
 }
-
 button {
     border: none;
     padding: 13px 22px;
@@ -135,56 +101,36 @@ button {
     cursor: pointer;
     font-weight: bold;
 }
-
-.deposit {
-    background: #16a875;
-    color: white;
-}
-
-.withdraw {
-    background: #101d35;
-    color: white;
-}
-
+.deposit { background: #16a875; color: white; }
+.withdraw { background: #101d35; color: white; }
 .section {
     background: white;
     padding: 22px;
     border-radius: 12px;
     margin-bottom: 22px;
 }
-
-.section h3 {
-    margin-bottom: 18px;
-}
-
+.section h3 { margin-bottom: 18px; }
 .plans {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
-
 .plan {
     border: 1px solid #e4e8ef;
     padding: 18px;
     border-radius: 10px;
 }
-
-.plan h4 {
-    margin-bottom: 12px;
-}
-
+.plan h4 { margin-bottom: 12px; }
 .plan p {
     color: #778197;
     font-size: 13px;
     margin-bottom: 12px;
 }
-
 .plan button {
     width: 100%;
     background: #16a875;
     color: white;
 }
-
 input {
     padding: 12px;
     width: 100%;
@@ -192,107 +138,59 @@ input {
     border-radius: 7px;
     margin: 10px 0;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
+table { width: 100%; border-collapse: collapse; }
 th, td {
     text-align: left;
     padding: 13px 8px;
     border-bottom: 1px solid #eee;
     font-size: 13px;
 }
-
-th {
-    color: #778197;
-}
-
+th { color: #778197; }
 footer {
     text-align: center;
     padding: 20px;
     color: #888;
 }
-
 @media(max-width: 900px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .plans {
-        grid-template-columns: 1fr;
-    }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+    .plans { grid-template-columns: 1fr; }
 }
-
 @media(max-width: 600px) {
     .sidebar {
         width: 75px;
         padding: 8px;
     }
-
     .sidebar a {
         font-size: 11px;
         padding: 12px 3px;
         text-align: center;
     }
-
-    .main {
-        padding: 12px;
-    }
-
-    .cards {
-        gap: 8px;
-    }
-
-    .card {
-        padding: 13px;
-    }
-
-    .card h2 {
-        font-size: 17px;
-    }
-
-    .logo {
-        font-size: 16px;
-    }
+    .main { padding: 12px; }
+    .cards { gap: 8px; }
+    .card { padding: 13px; }
+    .card h2 { font-size: 17px; }
+    .logo { font-size: 16px; }
 }
-
 </style>
 </head>
 
 <body>
-
 <header>
-    <div class="logo">
-        PROFIT<span>BRIDGE</span>
-    </div>
-
-    <div class="profile">
-        👤 Demo User
-    </div>
+    <div class="logo">PROFIT<span>BRIDGE</span></div>
+    <div class="profile">👤 Demo User</div>
 </header>
 
 <div class="container">
-
 <nav class="sidebar">
-
     <a href="#" class="active">🏠 Home</a>
-
     <a href="#investment">💼 Investment</a>
-
     <a href="#transactions">📊 Transactions</a>
-
     <a href="#wallet">💳 Wallet</a>
-
     <a href="#support">💬 Support</a>
-
     <a href="#account">⚙️ Account</a>
-
 </nav>
 
 <main class="main">
-
     <div class="welcome">
         <h2>Welcome Back!</h2>
         <p>Here's an overview of your demo account.</p>
@@ -303,94 +201,62 @@ footer {
     </div>
 
     <div class="cards">
-
         <div class="card">
             <p>Available Balance</p>
             <h2 id="balance">₦50,000</h2>
         </div>
-
         <div class="card">
             <p>Total Investment</p>
             <h2 id="invested">₦0</h2>
         </div>
-
         <div class="card">
             <p>Total Profit</p>
             <h2 class="green" id="profit">₦0</h2>
         </div>
-
         <div class="card">
             <p>Account Status</p>
             <h2 class="green">Active</h2>
         </div>
-
     </div>
 
     <div class="actions">
-
-        <button class="deposit" onclick="deposit()">
-            + Demo Deposit
-        </button>
-
-        <button class="withdraw" onclick="withdraw()">
-            Withdraw Demo Funds
-        </button>
-
+        <button class="deposit" onclick="deposit()">+ Demo Deposit</button>
+        <button class="withdraw" onclick="withdraw()">Withdraw Demo Funds</button>
     </div>
 
     <section class="section" id="investment">
-
         <h3>Investment Plans</h3>
-
         <div class="plans">
-
             <div class="plan">
                 <h4>Starter Plan</h4>
                 <p>Demo amount: ₦5,000</p>
                 <p>Duration: 2 days</p>
-                <button onclick="invest(5000)">
-                    Select Plan
-                </button>
+                <button onclick="invest(5000, 'Starter Plan')">Select Plan</button>
             </div>
-
             <div class="plan">
                 <h4>Growth Plan</h4>
                 <p>Demo amount: ₦10,000</p>
                 <p>Duration: 2 days</p>
-                <button onclick="invest(10000)">
-                    Select Plan
-                </button>
+                <button onclick="invest(10000, 'Growth Plan')">Select Plan</button>
             </div>
-
             <div class="plan">
                 <h4>Premium Plan</h4>
                 <p>Demo amount: ₦20,000</p>
                 <p>Duration: 2 days</p>
-                <button onclick="invest(20000)">
-                    Select Plan
-                </button>
+                <button onclick="invest(20000, 'Premium Plan')">Select Plan</button>
             </div>
-
         </div>
-
     </section>
 
     <section class="section" id="wallet">
-
         <h3>Wallet Information</h3>
-
         <p>Demo wallet balance</p>
-
         <h2 id="walletBalance">₦50,000</h2>
-
     </section>
 
     <section class="section" id="transactions">
-
         <h3>Recent Transactions</h3>
-
         <table>
-
             <thead>
                 <tr>
                     <th>Transaction</th>
@@ -398,19 +264,14 @@ footer {
                     <th>Status</th>
                 </tr>
             </thead>
-
             <tbody id="history">
-
                 <tr>
                     <td>Account Created</td>
                     <td>₦50,000</td>
                     <td class="green">Demo</td>
                 </tr>
-
             </tbody>
-
         </table>
-
     </section>
 
     <section class="section" id="support">
@@ -423,39 +284,158 @@ footer {
         <p>Account: Demo User</p>
         <p>Status: Active</p>
     </section>
-
 </main>
-
 </div>
 
-<footer>
-    © 2026 PROFITBRIDGE. Demo Dashboard.
-</footer>
+<footer>© 2026 PROFITBRIDGE. Demo Dashboard.</footer>
 
 <script>
+/*
+  DEMO ONLY:
+  These balances are stored in this browser, not in Supabase,
+  and are not real deposits, withdrawals, or investments.
+*/
+const STORAGE_KEY = "profitbridge_demo_dashboard_v1";
 
-let balance = 50000;
-let invested = 0;
-let profit = 0;
+let state = {
+    balance: 50000,
+    invested: 0,
+    profit: 0,
+    history: [
+        { name: "Account Created", amount: 50000, status: "Demo" }
+    ]
+};
+
+function loadState() {
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+            const parsed = JSON.parse(saved);
+            if (
+                Number.isFinite(parsed.balance) &&
+                Number.isFinite(parsed.invested) &&
+                Number.isFinite(parsed.profit) &&
+                Array.isArray(parsed.history)
+            ) {
+                state = parsed;
+            }
+        }
+    } catch (error) {
+        console.warn("Could not load demo dashboard data:", error);
+    }
+}
+
+function saveState() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (error) {
+        console.warn("Could not save demo dashboard data:", error);
+    }
+}
 
 function money(amount) {
-    return "₦" + amount.toLocaleString("en-NG");
+    return "₦" + Number(amount).toLocaleString("en-NG");
 }
 
 function updateDashboard() {
+    document.getElementById("balance").textContent = money(state.balance);
+    document.getElementById("walletBalance").textContent = money(state.balance);
+    document.getElementById("invested").textContent = money(state.invested);
+    document.getElementById("profit").textContent = money(state.profit);
 
-    document.getElementById("balance").innerText =
-        money(balance);
+    const history = document.getElementById("history");
+    history.innerHTML = "";
 
-    document.getElementById("walletBalance").innerText =
-        money(balance);
+    state.history.forEach(function(item) {
+        const row = document.createElement("tr");
 
-    document.getElementById("invested").innerText =
-        money(invested);
+        const nameCell = document.createElement("td");
+        nameCell.textContent = item.name;
 
-    document.getElementById("profit").innerText =
-        money(profit);
+        const amountCell = document.createElement("td");
+        amountCell.textContent = money(item.amount);
 
+        const statusCell = document.createElement("td");
+        statusCell.textContent = item.status || "Demo";
+        statusCell.className = "green";
+
+        row.append(nameCell, amountCell, statusCell);
+        history.appendChild(row);
+    });
 }
 
-function addHistory(name, amount)
+function addHistory(name, amount) {
+    state.history.unshift({
+        name: name,
+        amount: amount,
+        status: "Demo"
+    });
+
+    // Keep the latest 30 transactions in this browser.
+    state.history = state.history.slice(0, 30);
+}
+
+function deposit() {
+    const amount = 50000;
+    state.balance += amount;
+    addHistory("Demo Deposit", amount);
+    saveState();
+    updateDashboard();
+    alert("Demo deposit successful. ₦50,000 has been added to this browser's simulated balance.");
+}
+
+function withdraw() {
+    const entered = prompt("Enter demo withdrawal amount (₦):");
+
+    if (entered === null) return;
+
+    const amount = Number(entered.replace(/,/g, "").trim());
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+    }
+
+    if (amount > state.balance) {
+        alert("Insufficient demo balance.");
+        return;
+    }
+
+    state.balance -= amount;
+    addHistory("Demo Withdrawal", amount);
+    saveState();
+    updateDashboard();
+    alert("Demo withdrawal recorded. No real money was transferred.");
+}
+
+function invest(amount, planName) {
+    if (!Number.isFinite(amount) || amount <= 0) {
+        alert("Invalid plan amount.");
+        return;
+    }
+
+    if (state.balance < amount) {
+        alert("Insufficient demo balance. Please use Demo Deposit first.");
+        return;
+    }
+
+    const confirmed = confirm(
+        "Select " + planName + " for " + money(amount) +
+        " in DEMO mode? This will deduct the amount from your simulated balance."
+    );
+
+    if (!confirmed) return;
+
+    state.balance -= amount;
+    state.invested += amount;
+    addHistory(planName + " selected", amount);
+    saveState();
+    updateDashboard();
+    alert(planName + " selected successfully in demo mode.");
+}
+
+loadState();
+updateDashboard();
+</script>
+</body>
+</html>
